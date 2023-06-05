@@ -47,6 +47,4 @@ app.use("/addcost", addcostRoutes);
 app.use("/report", reportRoutes);
 app.use("/about", aboutRoutes);
 
-app.use((err, req, res, next) => {
-  res.status(500).json({ error: "Internal server error" });
-});
+
