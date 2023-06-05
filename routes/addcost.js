@@ -1,18 +1,19 @@
 // Import dependencies
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const Cost = require("../schemes/costs");
+const Cost = require('../schemes/costs');
+const User = require('../schemes/user')
 const availableCategories = [
-  "food",
-  "health",
-  "housing",
-  "sport",
-  "education",
-  "transportation",
-  "other",
+  'food',
+  'health',
+  'housing',
+  'sport',
+  'education',
+  'transportation',
+  'other'
 ];
 
-router.post("addcost/", async function (req, res) {
+router.post('addcost/', async function (req, res) {
   // Check if all required parameters are provided
   const { user_id, year, month, day, description, category, sum } = req.body;
   if (
@@ -24,13 +25,19 @@ router.post("addcost/", async function (req, res) {
     !category ||
     !sum
   ) {
-    return res.status(400).json({ error: "Missing parameters" });
+    return res.status(400).json({ error: 'Missing parameters' });
   }
 
   // Check if the category is valid
   if (!availableCategories.includes(category)) {
-    return res.status(400).json({ error: "Invalid category" });
+    return res.status(400).json({ error: 'Invalid category' });
   }
+
+  const user = await User.findOne({ id:user_id });
+    // Check if is user is empty
+    if(user.length === 0 ){
+      return res.status(404).json({ error: 'Cannot find user' });
+    }
 
   const newCost = new Cost({
     user_id,
