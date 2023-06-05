@@ -1,4 +1,3 @@
-const express = require('express');
 const router = express.Router();
 const Cost = require('../schemes/costs');
 const availableCategories = ['food', 'utilities', 'transportation', 'entertainment'];
