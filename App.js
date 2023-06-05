@@ -22,7 +22,7 @@ mongoose
       id: 123123,
       first_name: 'moshe',
       last_name: 'israeli',
-      birthday: new Date('1990-01-10'),
+      birthday: new Date('1990-01-10')
     });
     // Save the new user document to the database
     newUser
