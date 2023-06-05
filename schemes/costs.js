@@ -2,33 +2,46 @@ const mongoes = require('mongoose');
 const Schema = mongoes.Schema;
 
 
-const CostsSchema =  new Schema({
+const addCost =  new Schema({
     user_id:{
-        type:String
+        type:String,
+        required: true
     },
     year:{
-        type:Number
+        type:Number,
+        required: true
     },
     month:{
-        type:Number
+        type:Number,
+        required: true
     },
     day:{
-        type:Number
+        type:Number,
+        required: true
     },
     id:{
-        type:String
+        type:String,
+        required: true
     },
+    category: {
+        type: String,
+        enum: ['food', 'utilities', 'transportation', 'entertainment'],
+        required: true
+      },
     description:{
-        type:String
+        type:String,
+        required: true
     },
     category:{
-        type:String
+        type:String,
+        required: true
     },
     sum:{
-        type:Number
+        type:Number,
+        required: true
     }
 
 });
 
-const Cost = mongoes.model('costs',CostsSchema);
-module.exports = Cost;
+const AddCost = mongoes.model('AddCost',addCost);
+module.exports = AddCost;
