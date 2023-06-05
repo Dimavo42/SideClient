@@ -2,7 +2,7 @@ const mongoes = require('mongoose');
 const Schema = mongoes.Schema;
 
 
-const addCost =  new Schema({
+const costSchema =  new Schema({
     user_id:{
         type:String,
     },
@@ -33,5 +33,5 @@ const addCost =  new Schema({
 
 });
 
-const AddCost = mongoes.model('AddCost',addCost);
-module.exports = AddCost;
+const Cost = mongoes.model('Cost',costSchema);
+module.exports = Cost;

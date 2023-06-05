@@ -4,7 +4,7 @@ const Schema = mongoes.Schema;
 
 
 
-const UsersSchema = new Schema({
+const userSchema = new Schema({
         id:{
                 type:String
         },
@@ -21,5 +21,5 @@ const UsersSchema = new Schema({
 });
 
 
-const User = mongoes.model('Users',UsersSchema);
+const User = mongoes.model('User',userSchema);
 module.exports = User;
