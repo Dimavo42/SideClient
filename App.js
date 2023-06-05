@@ -6,7 +6,9 @@ const reportRoutes = require('./routes/report');
 
 const app = express();
 const dbURI = 'mongodb://127.0.0.1';
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+
+// Set up MongoDB connection
+mongoose.connect(dbURI)
   .then(() => {
     console.log('Connected to MongoDB');
     app.listen(3000, () => {
@@ -17,15 +19,14 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     console.error('Failed to connect to MongoDB', err);
   });
 
+  app.use(express.json());
+// Define routes
 app.use('/addcost', addcostRoutes);
 app.use('/report', reportRoutes);
 app.use('/about', aboutRoutes);
 
 
-app.use(express.json());
 app.use((err, req, res, next) => {
     res.status(500).json({ error: 'Internal server error' });
   });
-
-module.exports = app;
 
