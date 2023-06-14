@@ -1,67 +1,67 @@
 const mongoose = require('mongoose');
-const Schema = mongoes.Schema;
+const Schema = mongoose.Schema;
 
 const reportSchema = new Schema({
   user_id: {
-    type: String
+    type: String,
   },
   month: {
-    type: Number
+    type: Number,
   },
   year: {
-    type: Number
+    type: Number,
   },
   categories: {
     food: [
       {
         day: Number,
         description: String,
-        sum: Number
-      }
+        sum: Number,
+      },
     ],
     health: [
       {
         day: Number,
         description: String,
-        sum: Number
-      }
+        sum: Number,
+      },
     ],
     housing: [
       {
         day: Number,
         description: String,
-        sum: Number
-      }
+        sum: Number,
+      },
     ],
     sport: [
       {
         day: Number,
         description: String,
-        sum: Number
-      }
+        sum: Number,
+      },
     ],
     education: [
       {
         day: Number,
         description: String,
-        sum: Number
-      }
+        sum: Number,
+      },
     ],
     transportation: [
       {
         day: Number,
         description: String,
-        sum: Number
-      }
+        sum: Number,
+      },
     ],
     other: [
       {
         day: Number,
         description: String,
-        sum: Number
-      }
-    ]
-  }
+        sum: Number,
+      },
+    ],
+  },
 });
 
 const Report = mongoose.model('Report', reportSchema);

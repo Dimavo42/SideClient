@@ -1,8 +1,3 @@
-// Import dependencies
-const express = require('express');
-const router = express.Router();
-const Cost = require('../schemes/costs');
-const User = require('../schemes/user')
 const availableCategories = [
   'food',
   'health',
@@ -10,10 +5,10 @@ const availableCategories = [
   'sport',
   'education',
   'transportation',
-  'other'
+  'other',
 ];
 
-router.post('addcost/', async function (req, res) {
+const postAddCost = async (req, res) => {
   // Check if all required parameters are provided
   const { user_id, year, month, day, description, category, sum } = req.body;
   if (
@@ -33,11 +28,11 @@ router.post('addcost/', async function (req, res) {
     return res.status(400).json({ error: 'Invalid category' });
   }
 
-  const user = await User.findOne({ id:user_id });
-    // Check if is user is empty
-    if(user.length === 0 ){
-      return res.status(404).json({ error: 'Cannot find user' });
-    }
+  const user = await User.findOne({ id: user_id });
+  // Check if is user is empty
+  if (user.length === 0) {
+    return res.status(404).json({ error: 'Cannot find user' });
+  }
 
   const newCost = new Cost({
     user_id,
@@ -60,6 +55,6 @@ router.post('addcost/', async function (req, res) {
       //Return error couldnt save
       res.json({ error: `Could not save to DB: ${err.message}` });
     });
-});
+};
 
-module.exports = router;
+module.exports = { postAddCost };
