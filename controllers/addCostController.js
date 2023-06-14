@@ -9,6 +9,8 @@ const availableCategories = [
 ];
 
 const postAddCost = async (req, res) => {
+  console.log('addCost');
+
   // Check if all required parameters are provided
   const { user_id, year, month, day, description, category, sum } = req.body;
   if (

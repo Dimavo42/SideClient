@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 const aboutRoutes = require('./routes/aboutRoutes');
 const addcostRoutes = require('./routes/addCostRoutes');
 const reportRoutes = require('./routes/reportRoutes');
-const User = require('./schemas/user');
 
 dotenv.config({ path: './.env' });
 
@@ -25,7 +24,7 @@ app.use('/report', reportRoutes);
 app.use('/about', aboutRoutes);
 
 app.listen(process.env.PORT, () => {
-  console.log('Server started on port 3000');
+  console.log(`Server started on port http://localhost:${process.env.PORT}`);
 });
 
 /////////////////////////////// Create a new user document

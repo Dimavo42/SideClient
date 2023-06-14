@@ -1,16 +1,18 @@
 const getAboutDetails = async (req, res) => {
+  console.log('about');
+
   const developers = [
     {
-      firstname: 'Dima',
-      lastname: 'Voronov',
+      firstname: 'dima',
+      lastname: 'voronov',
       id: 321241119,
       email: 'dimaiscool95@gmail.com',
     },
     {
-      firstname: 'Ronen',
-      lastname: 'Levy',
-      id: 34534544,
-      email: 'tal@gmail.com',
+      firstname: 'ronen',
+      lastname: 'vishnivetsky',
+      id: 318552007,
+      email: 'ronenvish@gmail.com',
     },
   ];
 

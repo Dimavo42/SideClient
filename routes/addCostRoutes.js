@@ -4,6 +4,6 @@ const router = express.Router();
 
 const { postAddCost } = require('../controllers/addCostController');
 
-router.post('/addcost', postAddCost);
+router.post('/', postAddCost);
 
 module.exports = router;

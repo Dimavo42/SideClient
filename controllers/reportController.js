@@ -1,6 +1,7 @@
 const Report = require('../schemas/report');
 
 const getReport = async (req, res) => {
+  console.log('report');
   const { user_id, month, year } = req.query;
 
   // Check if all required parameters are provided
