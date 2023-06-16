@@ -1,18 +1,12 @@
-const availableCategories = [
-  'food',
-  'health',
-  'housing',
-  'sport',
-  'education',
-  'transportation',
-  'other',
-];
+const User = require('../schemas/userSchema');
+const Cost = require('../schemas/costSchema');
+const { availableCategories } = require('../utils/availableCategories');
 
 const postAddCost = async (req, res) => {
   console.log('addCost');
-
   // Check if all required parameters are provided
   const { user_id, year, month, day, description, category, sum } = req.body;
+
   if (
     !user_id ||
     !year ||
@@ -32,7 +26,7 @@ const postAddCost = async (req, res) => {
 
   const user = await User.findOne({ id: user_id });
   // Check if is user is empty
-  if (user.length === 0) {
+  if (!user) {
     return res.status(404).json({ error: 'Cannot find user' });
   }
 
