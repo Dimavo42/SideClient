@@ -36,7 +36,7 @@ const getReport = async (req, res) => {
       },
     });
   }
-  if (existingReport.length !== newCosts.length) {
+  if (report.length !== newCosts.length) {
     // Clear the existing category arrays in the report
     Object.keys(report.categories).forEach((category) => {
       report.categories[category] = [];
