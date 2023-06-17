@@ -1,3 +1,4 @@
+// dima voronov 321241119, ronen vishnivetsky 318552007
 const dotenv = require('dotenv');
 const express = require('express');
 const cors = require('cors');
@@ -6,8 +7,6 @@ const mongoose = require('mongoose');
 const aboutRoutes = require('./routes/aboutRoutes');
 const addcostRoutes = require('./routes/addCostRoutes');
 const reportRoutes = require('./routes/reportRoutes');
-
-const User = require('./schemas/userSchema');
 
 dotenv.config({ path: './.env' });
 
@@ -35,27 +34,3 @@ app.use('/about', aboutRoutes);
 app.listen(process.env.PORT, () => {
   console.log(`Server started on port http://localhost:${process.env.PORT}`);
 });
-
-// ///////////////////////////// Create a new user document
-// const newUser = new User({
-//   id: 123123,
-//   first_name: 'moshe',
-//   last_name: 'israeli',
-//   birthday: new Date('1990-01-10'),
-// });
-// ////////////////////////////// Save the new user document to the database
-//   newUser
-//     .save()
-//     .then(() => {
-//       console.log('Initial user document added to the database');
-//     })
-//     .catch((err) => {
-//       console.error(
-//         'Failed to add initial user document to the database',
-//         err
-//       );
-//     });
-// })
-// .catch((err) => {
-//   console.error('Failed to connect to MongoDB', err);
-// });

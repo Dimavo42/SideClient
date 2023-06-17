@@ -1,20 +1,19 @@
-const Report = require("../schemas/reportSchema");
-const User = require("../schemas/userSchema");
-const Cost = require("../schemas/costSchema");
+// dima voronov 321241119, ronen vishnivetsky 318552007
+const Report = require('../schemas/reportSchema');
+const User = require('../schemas/userSchema');
+const Cost = require('../schemas/costSchema');
 
 const getReport = async (req, res) => {
   const { user_id, month, year } = req.query;
 
-  console.log(user_id, month, year);
-
   // Check if all required parameters are provided
   if (!user_id || !month || !year) {
-    return res.status(400).json({ error: "Missing parameters" });
+    return res.status(400).json({ error: 'Missing parameters' });
   }
   const user = await User.findOne({ id: user_id });
   // Check if is user is empty
   if (!user) {
-    return res.status(404).json({ error: "Cannot find user" });
+    return res.status(404).json({ error: 'Cannot find user' });
   }
   // Find a report if not
   let report = await Report.findOne({ user_id, month, year });

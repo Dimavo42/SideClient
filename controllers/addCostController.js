@@ -1,6 +1,7 @@
-const User = require("../schemas/userSchema");
-const Cost = require("../schemas/costSchema");
-const { availableCategories } = require("../utils/availableCategories");
+// dima voronov 321241119, ronen vishnivetsky 318552007
+const User = require('../schemas/userSchema');
+const Cost = require('../schemas/costSchema');
+const { availableCategories } = require('../utils/availableCategories');
 
 const postAddCost = async (req, res) => {
   // Check if all required parameters are provided
@@ -15,18 +16,18 @@ const postAddCost = async (req, res) => {
     !category ||
     !sum
   ) {
-    return res.status(400).json({ error: "Missing parameters" });
+    return res.status(400).json({ error: 'Missing parameters' });
   }
 
   // Check if the category is valid
   if (!availableCategories.includes(category)) {
-    return res.status(400).json({ error: "Invalid category" });
+    return res.status(400).json({ error: 'Invalid category' });
   }
 
   const user = await User.findOne({ id: user_id });
   // Check if is user is empty
   if (!user) {
-    return res.status(404).json({ error: "Cannot find user" });
+    return res.status(404).json({ error: 'Cannot find user' });
   }
   // Try to find one and add it sum
   let existingCost = await Cost.findOne({
@@ -42,9 +43,18 @@ const postAddCost = async (req, res) => {
     await existingCost.save();
     res.json(existingCost);
   } else {
-    // There is no cost with this parmaters then add newCost 
-    const newCost = new Cost({ user_id, year, month, day, description, category, sum });
-    newCost.save()
+    // There is no cost with this parmaters then add newCost
+    const newCost = new Cost({
+      user_id,
+      year,
+      month,
+      day,
+      description,
+      category,
+      sum,
+    });
+    newCost
+      .save()
       .then(() => {
         res.json(newCost);
       })
