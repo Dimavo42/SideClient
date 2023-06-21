@@ -1,4 +1,6 @@
 // dima voronov 321241119, ronen vishnivetsky 318552007
+
+// developers data 
 const developers = [
   {
     firstname: 'dima',

@@ -1,4 +1,5 @@
 // dima voronov 321241119, ronen vishnivetsky 318552007
+// handling incoming requests and returning responses to the client
 const User = require('../schemas/userSchema');
 const Cost = require('../schemas/costSchema');
 const { availableCategories } = require('../utils/availableCategories');

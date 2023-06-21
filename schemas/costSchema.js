@@ -2,6 +2,7 @@
 const mongoes = require('mongoose');
 const Schema = mongoes.Schema;
 
+// cost schema 
 const costSchema = new Schema({
   user_id: {
     type: String,

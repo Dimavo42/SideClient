@@ -2,6 +2,7 @@
 const mongoes = require('mongoose');
 const Schema = mongoes.Schema;
 
+// User Schema
 const userSchema = new Schema({
   id: {
     type: String,

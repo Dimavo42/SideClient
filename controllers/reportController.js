@@ -1,4 +1,5 @@
 // dima voronov 321241119, ronen vishnivetsky 318552007
+// handling incoming requests and returning responses to the client
 const Report = require('../schemas/reportSchema');
 const User = require('../schemas/userSchema');
 const Cost = require('../schemas/costSchema');
@@ -35,6 +36,7 @@ const getReport = async (req, res) => {
       },
     });
   }
+  // If no return the old report and dont create a new one casuse nothing changed in the report 
   if (report.length !== newCosts.length) {
     // Clear the existing category arrays in the report
     Object.keys(report.categories).forEach((category) => {

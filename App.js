@@ -1,4 +1,5 @@
 // dima voronov 321241119, ronen vishnivetsky 318552007
+// import dependencies
 const dotenv = require('dotenv');
 const express = require('express');
 const cors = require('cors');
@@ -31,6 +32,7 @@ app.use('/addcost', addcostRoutes);
 app.use('/report', reportRoutes);
 app.use('/about', aboutRoutes);
 
+// define app port 
 app.listen(process.env.PORT, () => {
   console.log(`Server started on port http://localhost:${process.env.PORT}`);
 });

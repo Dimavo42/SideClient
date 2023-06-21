@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// report schema 
 const reportSchema = new Schema({
   user_id: {
     type: String,
